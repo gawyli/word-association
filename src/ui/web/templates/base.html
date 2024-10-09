@@ -25,7 +25,7 @@
             <h2>Previous Sessions</h2>
             <ul>
                 {% for session in sessions %}
-                    <li>Session {{ session.id[:8] }}</li>
+                <li><a href="{{ url_for('show_session', session_id=session.id) }}">{{ session.id }}</a></li>
                 {% endfor %}
             </ul>
         </aside>

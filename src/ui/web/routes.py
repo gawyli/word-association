@@ -44,5 +44,10 @@ def create_app():
     def graph():
         # Implement graph visualization here
         return render_template('graph.html')
+    
+    @app.route('/session/<session_id>')
+    def show_session(session_id):
+        session_data = SessionManager.load_session(session_id)
+        return render_template('session.html', session=session_data)
 
     return app
