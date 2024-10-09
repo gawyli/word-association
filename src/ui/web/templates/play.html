@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Word Association Game</h1>
+<div id="game-area">
+    <p>Stimulus word: <span id="stimulus-word">{{ stimulus_word }}</span></p>
+    <form id="response-form">
+        <input type="text" id="response-input" required>
+        <button type="submit">Submit</button>
+    </form>
+    <div id="result"></div>
+</div>
+<div id="loading" class="hidden">
+    <div class="dots">
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+    </div>
+</div>
+{% endblock %}

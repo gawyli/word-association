@@ -1,0 +1,134 @@
+:root {
+    --bg-color: #ffffff;
+    --text-color: #333333;
+    --header-bg: #f0f0f0;
+    --footer-bg: #f0f0f0;
+    --link-color: #0066cc;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+header {
+    background-color: var(--header-bg);
+    padding: 1rem;
+}
+
+#logo {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    margin: 0 1rem;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: var(--link-color);
+}
+
+main {
+    display: flex;
+    padding: 2rem;
+}
+
+#previous-sessions {
+    width: 200px;
+    margin-right: 2rem;
+}
+
+#content {
+    flex-grow: 1;
+}
+
+footer {
+    background-color: var(--footer-bg);
+    text-align: center;
+    padding: 1rem;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+#dark-mode-toggle {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    padding: 0.5rem;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+/* Dark mode styles */
+body.dark-mode {
+    --bg-color: #333333;
+    --text-color: #ffffff;
+    --header-bg: #222222;
+    --footer-bg: #222222;
+    --link-color: #66b3ff;
+}
+
+
+#loading {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#loading p {
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+.dots {
+    display: flex;
+    justify-content: center;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    background-color: #333;
+    border-radius: 50%;
+    margin: 0 5px;
+    animation: dot-pulse 1.5s infinite ease-in-out;
+}
+
+.dot:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.dot:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+@keyframes dot-pulse {
+    0%, 80%, 100% { transform: scale(0); }
+    40% { transform: scale(1); }
+}
+
+.hidden {
+    display: none !important;
+}
