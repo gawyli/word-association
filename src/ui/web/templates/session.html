@@ -1,21 +1,28 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1>Session Details</h1>
-{% if session %}
-    <p>Session ID: {{ session.id }}</p>
-    {% if session.end_time %}
-        <p>End Time: {{ session.end_time }}</p>
+<div class="session-details">
+    <h1>Session Details</h1>
+    {% if session %}
+        <div class="session-info">
+            <p><strong>Session ID:</strong> <span class="session-id">{{ session.id }}</span></p>
+            {% if session.end_time %}
+                <p><strong>End Time:</strong> <span class="end-time">{{ session.end_time }}</span></p>
+            {% endif %}
+        </div>
+        <h2>Word Pairs</h2>
+        <div class="word-pairs">
+            {% for pair in session.pairs %}
+                <div class="word-pair">
+                    <span class="stimulus">{{ pair.stimulusWord }}</span>
+                    <span class="arrow">→</span>
+                    <span class="response">{{ pair.responseWord }}</span>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p class="not-found">Session not found.</p>
     {% endif %}
-    <h2>Word Pairs</h2>
-    <ul>
-    {% for pair in session.pairs %}
-        <li>Stimulus: {{ pair.stimulusWord }} - Response: {{ pair.responseWord }}</li>
-    {% endfor %}
-    </ul>
-    <a href="{{ url_for('index') }}">Back to Home</a>
-{% else %}
-    <p>Session not found.</p>
-    <a href="{{ url_for('index') }}">Back to Home</a>
-{% endif %}
+    <a href="{{ url_for('index') }}" class="back-button">Back to Home</a>
+</div>
 {% endblock %}

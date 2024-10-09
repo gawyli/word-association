@@ -1,20 +1,28 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1>Word Association Game</h1>
-<div id="game-area">
-    <p>Stimulus word: <span id="stimulus-word">{{ stimulus_word }}</span></p>
-    <form id="response-form">
-        <input type="text" id="response-input" required>
-        <button type="submit">Submit</button>
-    </form>
-    <div id="result"></div>
-</div>
-<div id="loading" class="hidden">
-    <div class="dots">
-        <span class="dot"></span>
-        <span class="dot"></span>
-        <span class="dot"></span>
+<div class="game-container">
+    <h1>Word Association Game</h1>
+    <div id="game-area">
+        <p>Stimulus word: <span id="stimulus-word">{{ stimulus_word }}</span></p>
+        <div class="audio-controls">
+            <button id="record-button" class="audio-button">Record Response</button>
+            <button id="play-button" class="audio-button" disabled>Play Response</button>
+            <button id="play-stimulus" class="audio-button">Play Stimulus</button>
+        </div>
+        <form id="response-form">
+            <input type="text" id="response-input" required>
+            <button type="submit" class="submit-button">Submit</button>
+        </form>
+        <div id="result"></div>
+    </div>
+    <div id="loading" class="hidden">
+        <div class="dots">
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+        </div>
     </div>
 </div>
+<script src="{{ url_for('static', filename='js/audio.js') }}"></script>
 {% endblock %}

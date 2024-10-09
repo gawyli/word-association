@@ -11,7 +11,7 @@ class SessionManager:
             with open(SessionManager.SESSIONS_FILE, "r") as file:
                 return json.load(file)
         return {"sessions": []}
-
+#a
     @staticmethod
     def save_sessions(sessions):
         with open(SessionManager.SESSIONS_FILE, "w") as file:

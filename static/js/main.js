@@ -51,13 +51,23 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    darkModeToggle.addEventListener('click', function() {
+    function toggleDarkMode() {
         body.classList.toggle('dark-mode');
         localStorage.setItem('darkMode', body.classList.contains('dark-mode'));
-    });
+        updateDarkModeButtonText();
+    }
+
+    function updateDarkModeButtonText() {
+        darkModeToggle.textContent = body.classList.contains('dark-mode') ? 'Light Mode' : 'Dark Mode';
+    }
+
+    darkModeToggle.addEventListener('click', toggleDarkMode);
 
     // Check for saved dark mode preference
     if (localStorage.getItem('darkMode') === 'true') {
         body.classList.add('dark-mode');
     }
+
+    // Update button text on initial load
+    updateDarkModeButtonText();
 });

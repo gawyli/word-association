@@ -9,18 +9,17 @@
 <body>
     <header>
         <div id="logo">
-            <!-- Add your logo here -->
             <h1>Word Association Game</h1>
         </div>
         <nav>
             <ul>
-                <li><a href="{{ url_for('index') }}">Home</a></li>
-                <li><a href="{{ url_for('play') }}">Start Session</a></li>
-                <li><a href="{{ url_for('graph') }}">Graph</a></li>
+                <li><a href="{{ url_for('index') }}" class="nav-button">Home</a></li>
+                <li><a href="{{ url_for('play') }}" class="nav-button">Start Session</a></li>
+                <li><a href="{{ url_for('graph') }}" class="nav-button">Graph</a></li>
             </ul>
         </nav>
     </header>
-    <main>
+    <div class="container">
         <aside id="previous-sessions">
             <h2>Previous Sessions</h2>
             <ul>
@@ -29,14 +28,14 @@
                 {% endfor %}
             </ul>
         </aside>
-        <section id="content">
+        <main id="content">
             {% block content %}{% endblock %}
-        </section>
-    </main>
+        </main>
+    </div>
     <footer>
         <p>&copy; 2023 Word Association Game. All rights reserved.</p>
+        <button id="dark-mode-toggle">Toggle Dark Mode</button>
     </footer>
-    <button id="dark-mode-toggle">Toggle Dark Mode</button>
-    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>    
 </body>
 </html>
